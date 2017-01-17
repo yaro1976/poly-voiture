@@ -1,0 +1,47 @@
+<html>
+  <link rel="import" href="poly-voiture.html" />
+
+<body>
+	<h3>Intructions</h3>
+	<ol>
+		<li>Colorier la voiture en vert.</li>
+		<li>Faire de la voiture un objet <a href="https://www.polymer-project.org/1.0/start/first-element/intro#noinstall" target="_blank">polymer</a>.</li>
+		<li>Afficher (avec polymer) plusieurs voitures de couleurs différentes.</li>
+		<li>Au chargement de la page :  faire une requête sur 
+		<a href="https://www.random.org/integers/?num=1&min=1&max=5&col=1&base=10&format=plain&rnd=new" target="_blank">www.random.org</a> 
+		et afficher un nombre de voitures correspondant au chiffre aléatoire renvoyé</li>
+	</ol>
+	<hr/>
+	<div id="block">
+	  <!--poly-voiture couleur="car"></poly-voiture>
+	  <poly-voiture couleur="car-blue"></poly-voiture>
+	  <poly-voiture couleur="car-red"></poly-voiture-->
+	</div>
+
+
+	<script>
+	var couleurListe = ['car','car-red', 'car-blue', 'car-yellow', 'car-pink'];
+	  var request = new XMLHttpRequest();
+	  request.open('GET', 'https://www.random.org/integers/?num=1&min=1&max=5&col=1&base=10&format=plain&rnd=new', true);
+    request.onreadystatechange = function (event) {
+      if (request.readyState == 4) {
+        if(request.status == 200){
+        //dump(req.responseText);
+        for (var i = 0 ; i < parseInt(request.responseText) ; i++){
+          var voiture = document.createElement("poly-voiture");
+          var elem = document.getElementById("block");
+          voiture.setAttribute("couleur",couleurListe[i-1]);
+          elem.appendChild(voiture);
+          
+        }
+      }
+
+     else
+        //dump("Erreur pendant le chargement de la page.\n");
+        console.log("Erreur pendant le chargement de la page.\n");
+      }
+};
+  request.send(null);
+	</script>
+</body>
+</html>

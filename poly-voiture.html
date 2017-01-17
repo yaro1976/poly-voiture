@@ -1,0 +1,46 @@
+<!-- import latest release version of all components from polygit -->
+<link rel="import" href="https://polygit.org/components/polymer/polymer.html">
+<link rel="import" href="https://polygit.org/components/iron-icon/iron-icon.html">
+
+<dom-module id="poly-voiture">
+
+  <template>
+
+    <style>
+      /* local DOM styles go here */
+      :host {
+        display: inline-block;
+      }
+      .car {
+        fill: green;
+      }
+      .car-blue {
+        fill: blue;
+      }
+      .car-red {
+        fill: red;
+      }
+      .car-yellow {
+        fill: yellow;
+      }
+      .car-pink {
+        fill: pink;
+      }
+
+    </style>
+
+    <!-- local DOM goes here -->
+    <svg class$="[[couleur]]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80px" height="65px" viewBox="0 0 80 65" preserveAspectRatio="xMidYMid meet" zoomAndPan="disable" xmlns:svg="http://www.w3.org/2000/svg"><rect id="svgEditorBackground" x="0" y="0" width="80" height="65" style="fill: none; stroke: none;"/><rect x="10" y="4" stroke="black" id="e1_rectangle" class="svg" width="57" height="16" /><rect x="2" y="21" stroke="black" id="e2_rectangle" class="svg" width="77" height="23" /><circle id="e3_circle" cx="17" cy="44" stroke="black" class="svg" r="12.0416" /><circle id="e4_circle" cx="61" cy="44" stroke="black" class="svg" r="12.0416" /></svg>
+  </template>
+
+  <script>
+  Polymer({
+    is: 'poly-voiture',
+    properties: {
+      couleur: String
+    }
+
+  });
+  </script>
+
+</dom-module>
