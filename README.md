@@ -3,7 +3,7 @@
 Based on the framework Polymer, creation of a random car element, with color changes.
 
 ## Features :
-- A svg car element, is an Polymer object
+- A svg car element, is a Polymer object
 - The color of the car can be modified
 
 ## Improvements :
